@@ -1,0 +1,5 @@
+/target/
+transaction.log
+.settings/
+.classpath
+.project

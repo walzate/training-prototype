@@ -1,0 +1,12 @@
+<window border="normal" width="400px">
+
+	<vlayout>
+		<include src="menu.zul" />
+		<label style="font-weight: bold;">
+			Administración de clientes
+		</label>
+
+		<a href="createClient.zul">Crear Clientes</a>
+		<a href="">Buscar Clientes</a>
+	</vlayout>
+</window>
