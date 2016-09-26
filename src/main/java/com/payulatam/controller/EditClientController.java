@@ -21,7 +21,7 @@ public class EditClientController extends GenericForwardComposer {
 	/**
 	 * Logging manager
 	 */
-	final Logger LOGGER = Logger.getLogger(ClientController.class);
+	final Logger LOGGER = Logger.getLogger(CreateClientController.class);
 
 	/**
 	 * Reference to the name text box

@@ -5,7 +5,7 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 
-import com.payulatam.controller.ClientController;
+import com.payulatam.controller.CreateClientController;
 import com.payulatam.locator.ServiceLocator;
 import com.payulatam.model.Client;
 import com.payulatam.service.ClientService;
@@ -17,7 +17,7 @@ public class DeleteButtonListener implements EventListener {
 	/**
 	 * Logging manager
 	 */
-	final Logger LOGGER = Logger.getLogger(ClientController.class);
+	final Logger LOGGER = Logger.getLogger(CreateClientController.class);
 	
 	public DeleteButtonListener(Client client) {
 		super();

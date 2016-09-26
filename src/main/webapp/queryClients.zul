@@ -1,5 +1,5 @@
 <window id="createClientWin" border="normal" width="600px"
-	apply="com.payulatam.controller.ClientController">
+	apply="com.payulatam.controller.QueryClientsController">
 
 	<include src="menu.zul" />
 
