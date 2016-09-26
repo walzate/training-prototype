@@ -33,7 +33,7 @@ public class ClientController extends GenericForwardComposer {
 	 */
 	private Textbox clientAddressTextBox;
 	/**
-	 * 
+	 * Label for the messages resulting from the operation
 	 */
 	private Label messageLabel;
 	/**
@@ -62,8 +62,8 @@ public class ClientController extends GenericForwardComposer {
 		try {
 			clientService.saveOrUpdate(client);
 		} catch (Exception e) {
-			LOGGER.error(e);
 			messageLabel.setValue("Error al crear el cliente");
+			LOGGER.error(e);			
 		}
 
 		messageLabel.setValue("Cliente creado exitosamente.");
