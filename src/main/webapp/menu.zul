@@ -1,13 +1,23 @@
 <zk>
 	<hlayout>
-		<a href="index.zul">Inicio</a>
+		<a href="index.zul">
+			Inicio
+		</a>
 		|
-		<a href="clientsManagement.zul">Cliente</a>
+		<a href="clientsManagement.zul">
+			Cliente
+		</a>
 		|
-		<a>Cuentas</a>
+		<a>
+			Cuentas
+		</a>
 		|
-		<a>Movimientos</a>
+		<a>
+			Movimientos
+		</a>
 		|
-		<a>Reportes</a>
+		<a>
+			Reportes
+		</a>
 	</hlayout>
 </zk>

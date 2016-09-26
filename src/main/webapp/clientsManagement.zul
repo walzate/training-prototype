@@ -6,7 +6,11 @@
 			Administración de clientes
 		</label>
 
-		<a href="createClient.zul">Crear Clientes</a>
-		<a href="queryClients.zul">Buscar Clientes</a>
+		<a href="createClient.zul">
+			Crear Clientes
+		</a>
+		<a href="queryClients.zul">
+			Buscar Clientes
+		</a>
 	</vlayout>
 </window>

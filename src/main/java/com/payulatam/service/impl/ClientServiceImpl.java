@@ -45,8 +45,17 @@ public class ClientServiceImpl implements ClientService {
 	 * @see
 	 * com.payulatam.service.ClientService#delete(com.payulatam.model.Client)
 	 */
-	public boolean delete(Client client) throws Exception {		
+	public boolean delete(Client client) throws Exception {
 		return clientDao.delete(client);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.payulatam.service.ClientService#getById(java.lang.String)
+	 */
+	public Client getById(String id) throws Exception {
+		return clientDao.getById(id);
 	}
 
 }

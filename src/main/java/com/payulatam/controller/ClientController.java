@@ -15,6 +15,7 @@ import org.zkoss.zul.RowRenderer;
 import org.zkoss.zul.api.Textbox;
 
 import com.payulatam.listeners.DeleteButtonListener;
+import com.payulatam.listeners.EditButtonListener;
 import com.payulatam.locator.ServiceLocator;
 import com.payulatam.model.Client;
 import com.payulatam.service.ClientService;
@@ -104,6 +105,7 @@ public class ClientController extends GenericForwardComposer {
 
 					Button editButton = new Button();
 					editButton.setLabel("Editar");
+					editButton.addEventListener(Events.ON_CLICK, new EditButtonListener(client));					
 					editButton.setParent(row);
 
 					Button deleteButton = new Button();

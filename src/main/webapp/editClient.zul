@@ -1,0 +1,28 @@
+<window id="createClientWin" border="normal" width="400px"
+	apply="com.payulatam.controller.EditClientController">
+
+	<include src="menu.zul" />
+
+	<label style="font-weight: bold;">Editar Cliente</label>
+
+	<vlayout>
+		<label id="messageLabel"/>
+		<hlayout>
+			<label>Nombre:</label>
+			<textbox id="clientNameTextBox" />
+		</hlayout>
+		<hlayout>
+			<label>Dirección:</label>
+			<textbox id="clientAddressTextBox" />
+		</hlayout>
+		<hlayout>
+			<label>Teléfono:</label>
+			<textbox id="clientTelephoneTextBox" />
+		</hlayout>
+		<hlayout>
+			<button id="editClientButton">Editar</button>
+			<button>Cancelar</button>
+		</hlayout>
+	</vlayout>
+	
+</window>

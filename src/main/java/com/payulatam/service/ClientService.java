@@ -40,5 +40,13 @@ public interface ClientService {
 	 * @throws Exception
 	 */
 	public boolean delete(Client client) throws Exception;
+	
+	/**
+	 * Method used to query a client given its id
+	 * @param id The unique identifier of the client
+	 * @return The Client instance
+	 * @throws Exception
+	 */
+	public Client getById(String id) throws Exception;
 
 }

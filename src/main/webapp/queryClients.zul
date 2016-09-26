@@ -5,18 +5,20 @@
 
 	<vlayout>
 
-		<label style="font-weight: bold;">Buscar clientes</label>
+		<label style="font-weight: bold;">
+			Buscar clientes
+		</label>
 
 		<label id="messageLabel" />
 
-		<grid id="clientsGrid" >
+		<grid id="clientsGrid">
 			<columns>
-				<column label="Nombre"/>
-				<column label="Dirección"/>
-				<column label="Teléfono"/>
-				
-				<column label="Editar"/>
-				<column label="Eliminar"/>
+				<column label="Nombre" />
+				<column label="Dirección" />
+				<column label="Teléfono" />
+
+				<column label="Editar" />
+				<column label="Eliminar" />
 			</columns>
 		</grid>
 	</vlayout>

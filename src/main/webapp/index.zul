@@ -1,8 +1,14 @@
 <window id="win" border="normal" width="600px">
 	<vlayout>
 		<include src="menu.zul" />
-		<label style="font-weight: bold;">PayU Latam</label>
-		<label>Aplicación Prototipo</label>
-		<label>Nombre: Wilson Alzate Calderón</label>
+		<label style="font-weight: bold;">
+			PayU Latam
+		</label>
+		<label>
+			Aplicación Prototipo
+		</label>
+		<label>
+			Nombre: Wilson Alzate Calderón
+		</label>
 	</vlayout>
 </window>

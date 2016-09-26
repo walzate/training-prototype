@@ -3,26 +3,38 @@
 
 	<include src="menu.zul" />
 
-	<label style="font-weight: bold;">Crear Cliente</label>
+	<label style="font-weight: bold;">
+		Crear Cliente
+	</label>
 
 	<vlayout>
-		<label id="messageLabel"/>
+		<label id="messageLabel" />
 		<hlayout>
-			<label>Nombre:</label>
+			<label>
+				Nombre:
+			</label>
 			<textbox id="clientNameTextBox" />
 		</hlayout>
 		<hlayout>
-			<label>Dirección:</label>
+			<label>
+				Dirección:
+			</label>
 			<textbox id="clientAddressTextBox" />
 		</hlayout>
 		<hlayout>
-			<label>Teléfono:</label>
+			<label>
+				Teléfono:
+			</label>
 			<textbox id="clientTelephoneTextBox" />
 		</hlayout>
 		<hlayout>
-			<button id="createClientButton">Crear</button>
-			<button>Cancelar</button>
+			<button id="createClientButton">
+				Crear
+			</button>
+			<button>
+				Cancelar
+			</button>
 		</hlayout>
 	</vlayout>
-	
+
 </window>
