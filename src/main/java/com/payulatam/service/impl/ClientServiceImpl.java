@@ -30,4 +30,13 @@ public class ClientServiceImpl implements ClientService {
 		clientDao.saveOrUpdate(client);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.payulatam.service.ClientService#getClientsList()
+	 */
+	public Client[] getClientsList() throws Exception {
+		return clientDao.getClientsList();
+	}
+
 }

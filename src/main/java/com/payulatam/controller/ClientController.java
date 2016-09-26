@@ -2,8 +2,13 @@ package com.payulatam.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Grid;
 import org.zkoss.zul.Label;
+import org.zkoss.zul.ListModelList;
+import org.zkoss.zul.Row;
+import org.zkoss.zul.RowRenderer;
 import org.zkoss.zul.api.Textbox;
 
 import com.payulatam.locator.ServiceLocator;
@@ -45,6 +50,13 @@ public class ClientController extends GenericForwardComposer {
 	 */
 	private ClientService clientService;
 	/**
+	 * List of clients obtained from the repository
+	 */
+	private ListModelList clientsList;
+
+	private Grid clientsGrid;
+
+	/**
 	 * Logging manager
 	 */
 	final Logger LOGGER = Logger.getLogger(ClientController.class);
@@ -63,11 +75,48 @@ public class ClientController extends GenericForwardComposer {
 			clientService.saveOrUpdate(client);
 		} catch (Exception e) {
 			messageLabel.setValue("Error al crear el cliente");
-			LOGGER.error(e);			
+			LOGGER.error(e);
 		}
 
 		messageLabel.setValue("Cliente creado exitosamente.");
 
+	}
+
+	@Override
+	public void doAfterCompose(Component comp) throws Exception {
+		super.doAfterCompose(comp);
+
+		if (clientsGrid != null) {
+			// create model
+			clientsGrid.setModel(getClientsList()); // assign model to Grid
+
+			clientsGrid.setRowRenderer(new RowRenderer() {
+
+				public void render(Row row, Object data) throws Exception {
+					final Client client = (Client) data;
+					new Label(client.getName()).setParent(row);
+					new Label(client.getAddress()).setParent(row);
+				}
+			});
+		}
+	}
+
+	/**
+	 * Method used to query all the clients in the repository
+	 * 
+	 * @return the list of all clients in the repository
+	 * @throws Exception
+	 */
+	public ListModelList getClientsList() {
+		clientsList = null;
+		try {
+			clientService = ServiceLocator.getClientService();
+			Client[] results = clientService.getClientsList();
+			clientsList = new ListModelList(results);
+		} catch (Exception e) {
+			messageLabel.setValue("Error al consultar los clientes");
+		}
+		return clientsList;
 	}
 
 	/**

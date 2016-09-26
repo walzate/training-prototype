@@ -1,0 +1,19 @@
+<window id="createClientWin" border="normal" width="400px"
+	apply="com.payulatam.controller.ClientController">
+
+	<include src="menu.zul" />
+
+	<vlayout>
+
+		<label style="font-weight: bold;">Buscar clientes</label>
+
+		<label id="messageLabel" />
+
+		<grid id="clientsGrid" >
+			<columns>
+				<column label="Name"/>
+				<column label="Address"/>
+			</columns>
+		</grid>
+	</vlayout>
+</window>

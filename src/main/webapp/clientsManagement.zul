@@ -7,6 +7,6 @@
 		</label>
 
 		<a href="createClient.zul">Crear Clientes</a>
-		<a href="">Buscar Clientes</a>
+		<a href="queryClients.zul">Buscar Clientes</a>
 	</vlayout>
 </window>

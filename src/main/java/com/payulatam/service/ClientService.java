@@ -22,5 +22,13 @@ public interface ClientService {
 	 *             Any exception thrown saving or updating the object
 	 */
 	public void saveOrUpdate(Client client) throws Exception;
+	
+	/**
+	 * Method used to query all the clients in the repository
+	 * 
+	 * @return the list of all clients in the repository
+	 * @throws Exception
+	 */
+	public Client[] getClientsList() throws Exception;
 
 }
