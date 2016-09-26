@@ -82,7 +82,13 @@ public class EditClientController extends GenericForwardComposer {
 		}
 		Executions.sendRedirect("queryClients.zul");
 		messageLabel.setValue("Cliente creado exitosamente.");
+	}
 
+	/**
+	 * Method used as onclick listener for the cancel button
+	 */
+	public void onClick$cancelEditClientButton() {
+		Executions.sendRedirect("queryClients.zul");
 	}
 
 	/**

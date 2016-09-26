@@ -86,6 +86,14 @@ public class ClientController extends GenericForwardComposer {
 		messageLabel.setValue("Cliente creado exitosamente.");
 
 	}
+	
+	/**
+	 * Method used as onclick listener for the cancel button
+	 */
+	public void onClick$cancelCreateClientButton() {
+		Executions.sendRedirect("clientsManagement.zul");
+	}
+	
 
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {

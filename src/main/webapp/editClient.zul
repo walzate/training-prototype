@@ -6,7 +6,7 @@
 	<label style="font-weight: bold;">Editar Cliente</label>
 
 	<vlayout>
-		<label id="messageLabel"/>
+		<label id="messageLabel" />
 		<hlayout>
 			<label>Nombre:</label>
 			<textbox id="clientNameTextBox" />
@@ -21,8 +21,8 @@
 		</hlayout>
 		<hlayout>
 			<button id="editClientButton">Editar</button>
-			<button>Cancelar</button>
+			<button id="cancelEditClientButton">Cancelar</button>
 		</hlayout>
 	</vlayout>
-	
+
 </window>
