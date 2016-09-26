@@ -41,4 +41,21 @@ public class ClientDaoImpl implements ClientDao {
 		LOGGER.debug("Result: " + java.util.Arrays.toString(results));
 		return results;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.payulatam.dao.ClientDao#delete(com.payulatam.model.Client)
+	 */
+	public boolean delete(Client client) throws Exception {
+		LOGGER.debug("ClientDaoImpl: delete "+ client.toString());
+		boolean result = false;
+		try {
+			gigaSpace.take(client);
+			result = true;
+		} catch (Exception e) {
+			throw e;
+		}
+		return result;
+	}
 }

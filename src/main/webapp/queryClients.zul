@@ -1,4 +1,4 @@
-<window id="createClientWin" border="normal" width="400px"
+<window id="createClientWin" border="normal" width="600px"
 	apply="com.payulatam.controller.ClientController">
 
 	<include src="menu.zul" />
@@ -11,8 +11,12 @@
 
 		<grid id="clientsGrid" >
 			<columns>
-				<column label="Name"/>
-				<column label="Address"/>
+				<column label="Nombre"/>
+				<column label="Dirección"/>
+				<column label="Teléfono"/>
+				
+				<column label="Editar"/>
+				<column label="Eliminar"/>
 			</columns>
 		</grid>
 	</vlayout>

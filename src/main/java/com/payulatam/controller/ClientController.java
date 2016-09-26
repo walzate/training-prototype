@@ -3,7 +3,12 @@ package com.payulatam.controller;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Button;
 import org.zkoss.zul.Grid;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.ListModelList;
@@ -11,6 +16,7 @@ import org.zkoss.zul.Row;
 import org.zkoss.zul.RowRenderer;
 import org.zkoss.zul.api.Textbox;
 
+import com.payulatam.listeners.DeleteButtonListener;
 import com.payulatam.locator.ServiceLocator;
 import com.payulatam.model.Client;
 import com.payulatam.service.ClientService;
@@ -77,7 +83,7 @@ public class ClientController extends GenericForwardComposer {
 			messageLabel.setValue("Error al crear el cliente");
 			LOGGER.error(e);
 		}
-
+		Executions.sendRedirect("queryClients.zul");
 		messageLabel.setValue("Cliente creado exitosamente.");
 
 	}
@@ -96,6 +102,16 @@ public class ClientController extends GenericForwardComposer {
 					final Client client = (Client) data;
 					new Label(client.getName()).setParent(row);
 					new Label(client.getAddress()).setParent(row);
+					new Label(client.getTelephone()).setParent(row);
+
+					Button editButton = new Button();
+					editButton.setLabel("Editar");
+					editButton.setParent(row);
+
+					Button deleteButton = new Button();
+					deleteButton.setLabel("Eliminar");
+					deleteButton.addEventListener(Events.ON_CLICK, new DeleteButtonListener(client));
+					deleteButton.setParent(row);
 				}
 			});
 		}

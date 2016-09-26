@@ -29,4 +29,14 @@ public interface ClientDao {
 	 * @throws Exception
 	 */
 	public Client[] getClientsList() throws Exception;
+
+	/**
+	 * Method used to delete a client from the repository
+	 * 
+	 * @param client
+	 *            The client to remove
+	 * @return a boolean with the result. true on success false otherwise.
+	 * @throws Exception
+	 */
+	public boolean delete(Client client) throws Exception;
 }
