@@ -4,6 +4,7 @@
 package com.payulatam.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -28,6 +29,10 @@ public class Transaction {
 	 * The transaction's name
 	 */
 	private TransactionTypeEnum type;
+	/*
+	 * The transaction's date
+	 */
+	private Date date;
 	/**
 	 * The transaction's address
 	 */
@@ -51,7 +56,7 @@ public class Transaction {
 	 * @return the id to return
 	 */
 	@Id
-	@SpaceId(autoGenerate=true)
+	@SpaceId(autoGenerate = true)
 	public String getId() {
 		return id;
 	}
@@ -136,5 +141,39 @@ public class Transaction {
 	 */
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+
+	/**
+	 * Method used to return the value of the Transaction's date
+	 * 
+	 * @author wilson.alzate
+	 * @version 27/09/2016 3:59:19 p. m.
+	 * @return The Transaction's date to return
+	 */
+	public Date getDate() {
+		return date;
+	}
+
+	/**
+	 * Method used to modify the value of the Transaction's date
+	 * 
+	 * @author wilson.alzate
+	 * @version 27/09/2016 3:59:19 p. m.
+	 * @param date
+	 *            The Transaction's date to set
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Transaction [id=" + id + ", type=" + type + ", date=" + date + ", value=" + value + ", account="
+				+ account + "]";
 	}
 }

@@ -62,7 +62,7 @@ public class Client {
 	 * @return The Client's id to return
 	 */
 	@Id
-	@SpaceId(autoGenerate=true)
+	@SpaceId(autoGenerate = true)
 	public String getId() {
 		return id;
 	}

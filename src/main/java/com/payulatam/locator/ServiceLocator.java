@@ -4,6 +4,7 @@ import org.zkoss.zkplus.spring.SpringUtil;
 
 import com.payulatam.service.AccountService;
 import com.payulatam.service.ClientService;
+import com.payulatam.service.TransactionService;
 
 /**
  * Class used to communicate ZK with Spring, looking for the spring beans
@@ -30,6 +31,15 @@ public class ServiceLocator {
 	 */
 	public static AccountService getAccountService() {
 		return (AccountService) SpringUtil.getBean("accountServiceImpl", AccountService.class);
+	}
+
+	/**
+	 * Instance of the TransactionService bean
+	 * 
+	 * @return The proper instance for the clients service
+	 */
+	public static TransactionService getTransactionService() {
+		return (TransactionService) SpringUtil.getBean("transactionServiceImpl", TransactionService.class);
 	}
 
 }

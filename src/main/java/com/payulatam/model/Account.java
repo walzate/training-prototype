@@ -42,21 +42,24 @@ public class Account {
 
 	/**
 	 * Method used to return the value of the Account's id
+	 * 
 	 * @author wilson.alzate
 	 * @version 27/09/2016 9:55:42 a. m.
 	 * @return The Account's id to return
 	 */
 	@Id
-	@SpaceId(autoGenerate=true)
+	@SpaceId(autoGenerate = true)
 	public String getId() {
 		return id;
 	}
 
 	/**
 	 * Method used to modify the value of the Account's id
+	 * 
 	 * @author wilson.alzate
 	 * @version 27/09/2016 9:55:42 a. m.
-	 * @param id The Account's id to set
+	 * @param id
+	 *            The Account's id to set
 	 */
 	public void setId(String id) {
 		this.id = id;
@@ -64,6 +67,7 @@ public class Account {
 
 	/**
 	 * Method used to return the value of the Account's number
+	 * 
 	 * @author wilson.alzate
 	 * @version 27/09/2016 9:55:42 a. m.
 	 * @return The Account's number to return
@@ -74,9 +78,11 @@ public class Account {
 
 	/**
 	 * Method used to modify the value of the Account's number
+	 * 
 	 * @author wilson.alzate
 	 * @version 27/09/2016 9:55:42 a. m.
-	 * @param number The Account's number to set
+	 * @param number
+	 *            The Account's number to set
 	 */
 	public void setNumber(String number) {
 		this.number = number;
@@ -84,6 +90,7 @@ public class Account {
 
 	/**
 	 * Method used to return the value of the Account's balance
+	 * 
 	 * @author wilson.alzate
 	 * @version 27/09/2016 9:55:42 a. m.
 	 * @return The Account's balance to return
@@ -94,9 +101,11 @@ public class Account {
 
 	/**
 	 * Method used to modify the value of the Account's balance
+	 * 
 	 * @author wilson.alzate
 	 * @version 27/09/2016 9:55:42 a. m.
-	 * @param balance The Account's balance to set
+	 * @param balance
+	 *            The Account's balance to set
 	 */
 	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
@@ -104,6 +113,7 @@ public class Account {
 
 	/**
 	 * Method used to return the value of the Account's client
+	 * 
 	 * @author wilson.alzate
 	 * @version 27/09/2016 9:55:42 a. m.
 	 * @return The Account's client to return
@@ -115,11 +125,23 @@ public class Account {
 
 	/**
 	 * Method used to modify the value of the Account's client
+	 * 
 	 * @author wilson.alzate
 	 * @version 27/09/2016 9:55:42 a. m.
-	 * @param client The Account's client to set
+	 * @param client
+	 *            The Account's client to set
 	 */
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", number=" + number + ", balance=" + balance + ", client=" + client + "]";
 	}
 }

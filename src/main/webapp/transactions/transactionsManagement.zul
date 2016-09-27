@@ -1,0 +1,16 @@
+<window border="normal" width="400px">
+
+	<vlayout>
+		<include src="/template/menu.zul" />
+		<label style="font-weight: bold;">
+			Administración de movimientos
+		</label>
+
+		<a href="/transactions/createTransaction.zul">
+			Crear movimientos
+		</a>
+		<a href="/transactions/queryTransactions.zul">
+			Buscar movimientos
+		</a>
+	</vlayout>
+</window>

@@ -1,0 +1,32 @@
+<window id="createClientWin" border="normal" width="400px"
+	apply="com.payulatam.controller.transaction.CreateTransactionController">
+
+	<include src="/template/menu.zul" />
+
+	<label style="font-weight: bold;">Crear Movimiento</label>
+
+	<vlayout>
+		<label id="messageLabel" />
+		<hlayout>
+			<label>Tipo:</label>
+			<listbox id="transactionTypeListBox" mold="select"></listbox>			
+		</hlayout>
+		<hlayout>
+			<label>Fecha:</label>
+			<datebox id="transactionDateDateBox" />
+		</hlayout>
+		<hlayout>
+			<label>Valor:</label>
+			<doublebox id="transactionValueDoubleBox" />			
+		</hlayout>
+		<hlayout>
+			<label>Cuenta:</label>
+			<listbox id="transactionAccountListBox" mold="select"></listbox>			
+		</hlayout>
+		<hlayout>
+			<button id="createTransactionButton">Crear</button>
+			<button id="cancelCreateTransactionButton">Cancelar</button>
+		</hlayout>
+	</vlayout>
+
+</window>

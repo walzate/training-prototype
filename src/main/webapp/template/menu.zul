@@ -12,7 +12,7 @@
 			Cuentas
 		</a>
 		|
-		<a>
+		<a href="/transactions/transactionsManagement.zul">
 			Movimientos
 		</a>
 		|
