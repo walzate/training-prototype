@@ -3,7 +3,6 @@ package com.payulatam.controller.account;
 import java.math.BigDecimal;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Controller;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
@@ -21,49 +20,64 @@ import com.payulatam.service.AccountService;
 import com.payulatam.service.ClientService;
 
 /**
- * Controller for the create client view
+ * Controller for the edit accounts page
  * 
  * @author wilson.alzate
  *
  */
-@Controller
-public class CreateAccountController extends GenericForwardComposer {
+public class EditAccountController extends GenericForwardComposer {
 
 	/**
 	 * Serialization id
 	 */
-	private static final long serialVersionUID = 2116314619237122525L;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Logging manager
 	 */
-	final Logger LOGGER = Logger.getLogger(CreateAccountController.class);
+	final Logger LOGGER = Logger.getLogger(EditAccountController.class);
 
+	/**
+	 * Reference to the name text box
+	 */
+	private Textbox accountNumberTextBox;
+	/**
+	 * Reference to the account address text box
+	 */
+	private Textbox accountBalanceTextBox;
+	/**
+	 * Reference to the drop down list for clients
+	 */
+	private Listbox accountClientListBox;
 	/**
 	 * Label for the messages resulting from the operation
 	 */
 	private Label messageLabel;
+	/**
+	 * Reference to the account to be edited
+	 */
+	private Account accountToEdit;
 
 	/**
-	 * Field with the account's number
-	 */
-	private Textbox accountNumberTextBox;
-	/**
-	 * Field with the account's balance
-	 */
-	private Textbox accountBalanceTextBox;
-	/**
-	 * Field with the account's client
-	 */
-	private Listbox accountClientListBox;
-
-	/**
-	 * Method called on initialization phase
+	 * Initialization method
 	 */
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-		buildClientsListBox();
+
+		String accountId = Executions.getCurrent().getParameter("accountId");
+
+		AccountService accountService = ServiceLocator.getAccountService();
+
+		accountToEdit = accountService.getById(accountId);
+
+		LOGGER.debug("EditAccountController:doAfterCompose " + accountToEdit);
+
+		if (accountToEdit != null) {
+			accountNumberTextBox.setValue(accountToEdit.getNumber());
+			accountBalanceTextBox.setValue(accountToEdit.getBalance().toString());
+			buildClientsListBox(accountToEdit);
+		}
 	}
 
 	/**
@@ -73,55 +87,53 @@ public class CreateAccountController extends GenericForwardComposer {
 	 * @author wilson.alzate
 	 * @version 27/09/2016 2:13:25 p. m.
 	 */
-	public void buildClientsListBox() throws Exception {
+	public void buildClientsListBox(Account account) throws Exception {
 		ClientService clientService = ServiceLocator.getClientService();
 		Client[] clientsList = clientService.getClientsList();
 
 		ListModelList model = new ListModelList(clientsList);
 
 		accountClientListBox.setModel(model);
-		accountClientListBox.setItemRenderer(new ClientsListitemRenderer());
+		accountClientListBox.setItemRenderer(new ClientsListitemRenderer(accountToEdit.getClient()));
 	}
 
 	/**
 	 * Method used to listen the onclick event from the create account button.
 	 * It is used to create a new account and persist it.
 	 */
-	public void onClick$createAccountButton() {
+	public void onClick$editAccountButton() {
 
 		Account account = buildAccount();
+		account.setId(accountToEdit.getId());
 
 		AccountService accountService = ServiceLocator.getAccountService();
 
 		try {
 			accountService.saveOrUpdate(account);
 		} catch (Exception e) {
-			messageLabel.setValue("Error al crear la cuenta");
+			messageLabel.setValue("Error al crear el accounte");
 			LOGGER.error(e);
 		}
-
 		Executions.sendRedirect("queryAccounts.zul");
-		messageLabel.setValue("Cuenta creada exitosamente.");
+		messageLabel.setValue("Accounte creado exitosamente.");
 	}
 
 	/**
 	 * Method used as onclick listener for the cancel button
 	 */
-	public void onClick$cancelCreateAccountButton() {
-		Executions.sendRedirect("clientsManagement.zul");
+	public void onClick$cancelEditAccountButton() {
+		Executions.sendRedirect("queryAccounts.zul");
 	}
 
 	/**
-	 * Method used to create the client object using the view components values
+	 * Method used to create the account object using the view components values
 	 * 
-	 * @return A new client object with the values entered by the user.
+	 * @return A new account object with the values entered by the user.
 	 */
 	private Account buildAccount() {
 		Account account = new Account();
 		account.setNumber(accountNumberTextBox.getValue());
-
-		BigDecimal balance = new BigDecimal(accountBalanceTextBox.getValue());
-		account.setBalance(balance);
+		account.setBalance(new BigDecimal(accountBalanceTextBox.getValue()));
 
 		account.setClient(getSelectedClient());
 
