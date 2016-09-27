@@ -1,0 +1,16 @@
+<window border="normal" width="400px">
+
+	<vlayout>
+		<include src="/template/menu.zul" />
+		<label style="font-weight: bold;">
+			Administración de cuentas
+		</label>
+
+		<a href="/accounts/createAccount.zul">
+			Crear Cuentas
+		</a>
+		<a href="/accounts/queryAccounts.zul">
+			Buscar Cuentas
+		</a>
+	</vlayout>
+</window>

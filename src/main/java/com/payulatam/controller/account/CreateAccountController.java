@@ -108,7 +108,7 @@ public class CreateAccountController extends GenericForwardComposer {
 	 * Method used as onclick listener for the cancel button
 	 */
 	public void onClick$cancelCreateAccountButton() {
-		Executions.sendRedirect("clientsManagement.zul");
+		Executions.sendRedirect("accountsManagement.zul");
 	}
 
 	/**
