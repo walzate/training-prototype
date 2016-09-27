@@ -1,0 +1,26 @@
+<window id="createClientWin" border="normal" width="600px"
+	apply="com.payulatam.controller.transaction.QueryTransactionsController">
+
+	<include src="/template/menu.zul" />
+
+	<vlayout>
+
+		<label style="font-weight: bold;">
+			Buscar movimientos
+		</label>
+
+		<label id="messageLabel" />
+
+		<grid id="transactionsGrid">
+			<columns>
+				<column label="Tipo" />
+				<column label="Fecha" />
+				<column label="Valor" />
+				<column label="Cuenta" />
+
+				<column label="Editar" />
+				<column label="Eliminar" />
+			</columns>
+		</grid>
+	</vlayout>
+</window>
