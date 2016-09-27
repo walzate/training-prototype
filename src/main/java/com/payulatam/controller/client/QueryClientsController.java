@@ -11,8 +11,8 @@ import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Row;
 import org.zkoss.zul.RowRenderer;
 
-import com.payulatam.listeners.DeleteButtonListener;
-import com.payulatam.listeners.EditButtonListener;
+import com.payulatam.listeners.client.DeleteClientButtonListener;
+import com.payulatam.listeners.client.EditClientButtonListener;
 import com.payulatam.locator.ServiceLocator;
 import com.payulatam.model.Client;
 import com.payulatam.service.ClientService;
@@ -71,12 +71,12 @@ public class QueryClientsController extends GenericForwardComposer {
 
 					Button editButton = new Button();
 					editButton.setLabel("Editar");
-					editButton.addEventListener(Events.ON_CLICK, new EditButtonListener(client));
+					editButton.addEventListener(Events.ON_CLICK, new EditClientButtonListener(client));
 					editButton.setParent(row);
 
 					Button deleteButton = new Button();
 					deleteButton.setLabel("Eliminar");
-					deleteButton.addEventListener(Events.ON_CLICK, new DeleteButtonListener(client));
+					deleteButton.addEventListener(Events.ON_CLICK, new DeleteClientButtonListener(client));
 					deleteButton.setParent(row);
 				}
 			});

@@ -1,4 +1,4 @@
-package com.payulatam.listeners;
+package com.payulatam.listeners.client;
 
 import org.apache.log4j.Logger;
 import org.zkoss.zk.ui.Executions;
@@ -13,7 +13,7 @@ import com.payulatam.model.Client;
  * @author wilson.alzate
  *
  */
-public class EditButtonListener implements EventListener {
+public class EditClientButtonListener implements EventListener {
 
 	/**
 	 * The client instance to edit
@@ -23,7 +23,7 @@ public class EditButtonListener implements EventListener {
 	/**
 	 * Logging manager
 	 */
-	final Logger LOGGER = Logger.getLogger(EditButtonListener.class);
+	final Logger LOGGER = Logger.getLogger(EditClientButtonListener.class);
 
 	/**
 	 * Class constructor
@@ -31,7 +31,7 @@ public class EditButtonListener implements EventListener {
 	 * @param client
 	 *            The client needed for the event listener
 	 */
-	public EditButtonListener(Client client) {
+	public EditClientButtonListener(Client client) {
 		super();
 		this.client = client;
 	}

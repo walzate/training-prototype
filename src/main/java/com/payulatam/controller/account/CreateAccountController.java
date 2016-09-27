@@ -97,7 +97,7 @@ public class CreateAccountController extends GenericForwardComposer {
 			LOGGER.error(e);
 		}
 
-		Executions.sendRedirect("queryClients.zul");
+		Executions.sendRedirect("queryAccounts.zul");
 		messageLabel.setValue("Cuenta creada exitosamente.");
 	}
 

@@ -1,0 +1,25 @@
+<window id="createClientWin" border="normal" width="600px"
+	apply="com.payulatam.controller.account.QueryAccountsController">
+
+	<include src="/template/menu.zul" />
+
+	<vlayout>
+
+		<label style="font-weight: bold;">
+			Buscar cuentas
+		</label>
+
+		<label id="messageLabel" />
+
+		<grid id="accountsGrid">
+			<columns>
+				<column label="Número" />
+				<column label="Saldo" />
+				<column label="Cliente" />
+
+				<column label="Editar" />
+				<column label="Eliminar" />
+			</columns>
+		</grid>
+	</vlayout>
+</window>

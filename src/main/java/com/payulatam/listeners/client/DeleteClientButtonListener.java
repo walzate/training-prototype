@@ -1,4 +1,4 @@
-package com.payulatam.listeners;
+package com.payulatam.listeners.client;
 
 import org.apache.log4j.Logger;
 import org.zkoss.zk.ui.Executions;
@@ -16,7 +16,7 @@ import com.payulatam.service.ClientService;
  * @author wilson.alzate
  *
  */
-public class DeleteButtonListener implements EventListener {
+public class DeleteClientButtonListener implements EventListener {
 
 	/**
 	 * The client instance to delete
@@ -26,7 +26,7 @@ public class DeleteButtonListener implements EventListener {
 	/**
 	 * Logging manager
 	 */
-	final Logger LOGGER = Logger.getLogger(DeleteButtonListener.class);
+	final Logger LOGGER = Logger.getLogger(DeleteClientButtonListener.class);
 
 	/**
 	 * Class constructor
@@ -34,7 +34,7 @@ public class DeleteButtonListener implements EventListener {
 	 * @param client
 	 *            The client needed for the event listener
 	 */
-	public DeleteButtonListener(Client client) {
+	public DeleteClientButtonListener(Client client) {
 		super();
 		this.client = client;
 	}
