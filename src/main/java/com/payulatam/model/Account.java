@@ -3,6 +3,10 @@ package com.payulatam.model;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.gigaspaces.annotation.pojo.SpaceId;
 
 /**
  * Accounts entity
@@ -42,6 +46,8 @@ public class Account {
 	 * @version 27/09/2016 9:55:42 a. m.
 	 * @return The Account's id to return
 	 */
+	@Id
+	@SpaceId(autoGenerate=true)
 	public String getId() {
 		return id;
 	}
@@ -102,6 +108,7 @@ public class Account {
 	 * @version 27/09/2016 9:55:42 a. m.
 	 * @return The Account's client to return
 	 */
+	@ManyToOne
 	public Client getClient() {
 		return client;
 	}

@@ -1,4 +1,4 @@
-package com.payulatam.controller;
+package com.payulatam.controller.client;
 
 import org.apache.log4j.Logger;
 import org.zkoss.zk.ui.Component;
@@ -33,7 +33,7 @@ public class QueryClientsController extends GenericForwardComposer {
 	/**
 	 * Logging manager
 	 */
-	final Logger LOGGER = Logger.getLogger(CreateClientController.class);
+	final Logger LOGGER = Logger.getLogger(QueryClientsController.class);
 
 	/**
 	 * Reference to the grid used to display the clients

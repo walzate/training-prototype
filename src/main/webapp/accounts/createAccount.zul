@@ -1,0 +1,28 @@
+<window id="createClientWin" border="normal" width="400px"
+	apply="com.payulatam.controller.account.CreateAccountController">
+
+	<include src="/template/menu.zul" />
+
+	<label style="font-weight: bold;">Crear Cuentas</label>
+
+	<vlayout>
+		<label id="messageLabel" />
+		<hlayout>
+			<label>Número:</label>
+			<textbox id="accountNumberTextBox" />
+		</hlayout>
+		<hlayout>
+			<label>Saldo:</label>
+			<textbox id="accountBalanceTextBox" />
+		</hlayout>
+		<hlayout>
+			<label>Cliente:</label>
+			<listbox id="accountClientListBox" mold="select"></listbox>			
+		</hlayout>
+		<hlayout>
+			<button id="createAccountButton">Crear</button>
+			<button id="cancelCreateAccountButton">Cancelar</button>
+		</hlayout>
+	</vlayout>
+
+</window>

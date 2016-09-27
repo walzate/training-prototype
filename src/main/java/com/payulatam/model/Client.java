@@ -1,6 +1,7 @@
 package com.payulatam.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
 
@@ -60,6 +61,8 @@ public class Client {
 	 * @version 27/09/2016 9:55:16 a. m.
 	 * @return The Client's id to return
 	 */
+	@Id
+	@SpaceId(autoGenerate=true)
 	public String getId() {
 		return id;
 	}

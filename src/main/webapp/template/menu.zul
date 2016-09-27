@@ -8,7 +8,7 @@
 			Cliente
 		</a>
 		|
-		<a>
+		<a href="/accounts/createAccount.zul">
 			Cuentas
 		</a>
 		|

@@ -1,7 +1,7 @@
-package com.payulatam.controller;
+package com.payulatam.controller.client;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Controller;
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Label;
@@ -12,18 +12,22 @@ import com.payulatam.model.Client;
 import com.payulatam.service.ClientService;
 
 /**
- * Controller for the create client view
+ * Controller for the edit clients page
  * 
  * @author wilson.alzate
  *
  */
-@Controller
-public class CreateClientController extends GenericForwardComposer {
+public class EditClientController extends GenericForwardComposer {
 
 	/**
 	 * Serialization id
 	 */
-	private static final long serialVersionUID = 2116314619237122525L;
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Logging manager
+	 */
+	final Logger LOGGER = Logger.getLogger(EditClientController.class);
 
 	/**
 	 * Reference to the name text box
@@ -42,24 +46,42 @@ public class CreateClientController extends GenericForwardComposer {
 	 */
 	private Textbox clientTelephoneTextBox;
 	/**
-	 * Client service instance
+	 * Reference to the client to be edited
 	 */
-	private ClientService clientService;
+	private Client clientToEdit;
 
 	/**
-	 * Logging manager
+	 * Initialization method
 	 */
-	final Logger LOGGER = Logger.getLogger(CreateClientController.class);
+	@Override
+	public void doAfterCompose(Component comp) throws Exception {
+		super.doAfterCompose(comp);
+
+		String clientId = Executions.getCurrent().getParameter("clientId");
+
+		ClientService clientService = ServiceLocator.getClientService();
+
+		clientToEdit = clientService.getById(clientId);
+
+		LOGGER.debug("EditClientController:doAfterCompose " + clientToEdit);
+
+		if (clientToEdit != null) {
+			clientNameTextBox.setValue(clientToEdit.getName());
+			clientAddressTextBox.setValue(clientToEdit.getAddress());
+			clientTelephoneTextBox.setValue(clientToEdit.getTelephone());
+		}
+	}
 
 	/**
 	 * Method used to listen the onclick event from the create client button. It
 	 * is used to create a new client and persist it.
 	 */
-	public void onClick$createClientButton() {
+	public void onClick$editClientButton() {
 
 		Client client = buildClient();
+		client.setId(clientToEdit.getId());
 
-		clientService = ServiceLocator.getClientService();
+		ClientService clientService = ServiceLocator.getClientService();
 
 		try {
 			clientService.saveOrUpdate(client);
@@ -69,14 +91,13 @@ public class CreateClientController extends GenericForwardComposer {
 		}
 		Executions.sendRedirect("queryClients.zul");
 		messageLabel.setValue("Cliente creado exitosamente.");
-
 	}
 
 	/**
 	 * Method used as onclick listener for the cancel button
 	 */
-	public void onClick$cancelCreateClientButton() {
-		Executions.sendRedirect("clientsManagement.zul");
+	public void onClick$cancelEditClientButton() {
+		Executions.sendRedirect("queryClients.zul");
 	}
 
 	/**

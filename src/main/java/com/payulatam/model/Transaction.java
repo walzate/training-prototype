@@ -5,6 +5,10 @@ package com.payulatam.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.gigaspaces.annotation.pojo.SpaceId;
 import com.payulatam.enums.TransactionTypeEnum;
 
 /**
@@ -46,6 +50,8 @@ public class Transaction {
 	 * @version 27/09/2016 9:47:44 a. m.
 	 * @return the id to return
 	 */
+	@Id
+	@SpaceId(autoGenerate=true)
 	public String getId() {
 		return id;
 	}
@@ -115,6 +121,7 @@ public class Transaction {
 	 * @version 27/09/2016 9:49:27 a. m.
 	 * @return the account to return
 	 */
+	@ManyToOne
 	public Account getAccount() {
 		return account;
 	}
