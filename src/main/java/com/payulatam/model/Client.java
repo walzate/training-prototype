@@ -54,77 +54,92 @@ public class Client {
 	}
 
 	/**
-	 * Method used to return the client's id
+	 * Method used to return the value of the Client's id
 	 * 
-	 * @return The client's id
+	 * @author wilson.alzate
+	 * @version 27/09/2016 9:55:16 a. m.
+	 * @return The Client's id to return
 	 */
-	@SpaceId(autoGenerate = true)
 	public String getId() {
 		return id;
 	}
 
 	/**
-	 * Method used to modify the client's id
+	 * Method used to modify the value of the Client's id
 	 * 
+	 * @author wilson.alzate
+	 * @version 27/09/2016 9:55:16 a. m.
 	 * @param id
-	 *            The client's id
+	 *            The Client's id to set
 	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
 	/**
-	 * Method used to return the client's name
+	 * Method used to return the value of the Client's name
 	 * 
-	 * @return The client's name
+	 * @author wilson.alzate
+	 * @version 27/09/2016 9:55:16 a. m.
+	 * @return The Client's name to return
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Method used to modify the client's name
+	 * Method used to modify the value of the Client's name
 	 * 
-	 * @param id
-	 *            The client's name
+	 * @author wilson.alzate
+	 * @version 27/09/2016 9:55:16 a. m.
+	 * @param name
+	 *            The Client's name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * Method used to return the client's address
+	 * Method used to return the value of the Client's address
 	 * 
-	 * @return The client's address
+	 * @author wilson.alzate
+	 * @version 27/09/2016 9:55:16 a. m.
+	 * @return The Client's address to return
 	 */
 	public String getAddress() {
 		return address;
 	}
 
 	/**
-	 * Method used to modify the client's address
+	 * Method used to modify the value of the Client's address
 	 * 
-	 * @param id
-	 *            The client's address
+	 * @author wilson.alzate
+	 * @version 27/09/2016 9:55:16 a. m.
+	 * @param address
+	 *            The Client's address to set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
 	/**
-	 * Method used to return the client's telephone number
+	 * Method used to return the value of the Client's telephone
 	 * 
-	 * @return The client's telephone number
+	 * @author wilson.alzate
+	 * @version 27/09/2016 9:55:16 a. m.
+	 * @return The Client's telephone to return
 	 */
 	public String getTelephone() {
 		return telephone;
 	}
 
 	/**
-	 * Method used to modify the client's telephone number
+	 * Method used to modify the value of the Client's telephone
 	 * 
-	 * @param id
-	 *            The client's telephone number
+	 * @author wilson.alzate
+	 * @version 27/09/2016 9:55:16 a. m.
+	 * @param telephone
+	 *            The Client's telephone to set
 	 */
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
