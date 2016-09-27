@@ -8,6 +8,12 @@ import org.springframework.stereotype.Component;
 import com.payulatam.dao.ClientDao;
 import com.payulatam.model.Client;
 
+/**
+ * Implementation foe the data access object for clients
+ * 
+ * @author wilson.alzate
+ *
+ */
 @Component
 public class ClientDaoImpl implements ClientDao {
 

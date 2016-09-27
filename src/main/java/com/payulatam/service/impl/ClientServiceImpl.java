@@ -16,6 +16,9 @@ import com.payulatam.service.ClientService;
 @Component
 public class ClientServiceImpl implements ClientService {
 
+	/**
+	 * Instance of the data access object for clients
+	 */
 	@Autowired
 	ClientDao clientDao;
 

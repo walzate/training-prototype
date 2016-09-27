@@ -17,6 +17,12 @@ import com.payulatam.locator.ServiceLocator;
 import com.payulatam.model.Client;
 import com.payulatam.service.ClientService;
 
+/**
+ * Controller for the query clients page
+ * 
+ * @author wilson.alzate
+ *
+ */
 public class QueryClientsController extends GenericForwardComposer {
 
 	/**

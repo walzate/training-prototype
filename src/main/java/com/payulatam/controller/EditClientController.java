@@ -11,6 +11,12 @@ import com.payulatam.locator.ServiceLocator;
 import com.payulatam.model.Client;
 import com.payulatam.service.ClientService;
 
+/**
+ * Controller for the edit clients page
+ * 
+ * @author wilson.alzate
+ *
+ */
 public class EditClientController extends GenericForwardComposer {
 
 	/**
@@ -44,6 +50,9 @@ public class EditClientController extends GenericForwardComposer {
 	 */
 	private Client clientToEdit;
 
+	/**
+	 * Initialization method
+	 */
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
