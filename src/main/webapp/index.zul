@@ -1,6 +1,6 @@
 <window id="win" border="normal" width="600px">
 	<vlayout>
-		<include src="menu.zul" />
+		<include src="/template/menu.zul" />
 		<label style="font-weight: bold;">
 			PayU Latam
 		</label>

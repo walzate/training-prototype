@@ -1,10 +1,10 @@
 <zk>
 	<hlayout>
-		<a href="index.zul">
+		<a href="/index.zul">
 			Inicio
 		</a>
 		|
-		<a href="clientsManagement.zul">
+		<a href="/clients/clientsManagement.zul">
 			Cliente
 		</a>
 		|
