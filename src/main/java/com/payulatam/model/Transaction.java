@@ -3,12 +3,15 @@
  */
 package com.payulatam.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.payulatam.enums.TransactionTypeEnum;
 
@@ -19,8 +22,14 @@ import com.payulatam.enums.TransactionTypeEnum;
  * @version 27/09/2016 9:38:06 a. m.
  *
  */
-public class Transaction {
+@Entity
+@SpaceClass
+public class Transaction implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3L;
 	/**
 	 * The UUID for Gigaspaces
 	 */

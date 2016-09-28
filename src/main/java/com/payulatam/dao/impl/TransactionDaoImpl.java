@@ -1,5 +1,7 @@
 package com.payulatam.dao.impl;
 
+import java.util.Random;
+
 import org.apache.log4j.Logger;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.context.GigaSpaceContext;
@@ -7,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import com.payulatam.dao.TransactionDao;
 import com.payulatam.model.Transaction;
+import com.payulatam.pollingcontainer.TransactionRequest;
+import com.payulatam.pollingcontainer.TransactionResult;
 
 /**
  * Implementation foe the data access object for transactions
@@ -31,11 +35,48 @@ public class TransactionDaoImpl implements TransactionDao {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.payulatam.dao.TransactionDao#saveOrUpdate(com.payulatam.model.Transaction)
+	 * @see com.payulatam.dao.TransactionDao#saveOrUpdate(com.payulatam.model.
+	 * Transaction)
 	 */
 	public void saveOrUpdate(Transaction transaction) throws Exception {
-		gigaSpace.write(transaction);
+		// http://docs.gigaspaces.com/sbp/master-worker-pattern.html#example-2-designated-workers
+		LOGGER.debug("TransactionDaoImpl.saveOrUpdate - Begin");
+		TransactionRequest request = new TransactionRequest();
+
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(1000);
+
+		request.setTransaction(transaction);
+		request.setJobID(randomInt);
+
+		LOGGER.debug("Writing to the pooling container the transaction request: " + request.toString());
+		gigaSpace.write(request);
+	}
+
+	/**
+	 * Method used to take the polling result from the space
+	 * 
+	 * @author wilson.alzate
+	 * @version 28/09/2016 5:39:09 p. m.
+	 */
+	public void removeResultFromSpace(Integer randomInt) {
+		TransactionResult resultTemplate = new TransactionResult();
+		resultTemplate.setJobID(randomInt);
+		resultLoop: while (true) {
+			TransactionResult[] results = gigaSpace.readMultiple(new TransactionResult());
+			LOGGER.debug("TransactionDaoImpl.saveOrUpdate - found transaction results " + results.toString());
+			LOGGER.debug("TransactionDaoImpl.saveOrUpdate - found transaction results.length " + results.length);
+
+			TransactionResult result = gigaSpace.take(resultTemplate, 1000);
+			if (result != null) {
+				LOGGER.debug("TransactionDaoImpl.saveOrUpdate - result " + result.toString());
+				break resultLoop;
+			} else {
+				LOGGER.debug(
+						"TransactionDaoImpl.saveOrUpdate - result not found template: " + resultTemplate.toString());
+				break resultLoop;
+			}
+		}
 	}
 
 	/*
@@ -52,7 +93,8 @@ public class TransactionDaoImpl implements TransactionDao {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.payulatam.dao.TransactionDao#delete(com.payulatam.model.Transaction)
+	 * @see
+	 * com.payulatam.dao.TransactionDao#delete(com.payulatam.model.Transaction)
 	 */
 	public boolean delete(Transaction transaction) throws Exception {
 		LOGGER.debug("TransactionDaoImpl: delete " + transaction.toString());

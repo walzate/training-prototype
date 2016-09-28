@@ -1,8 +1,11 @@
 package com.payulatam.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 
 /**
@@ -12,8 +15,13 @@ import com.gigaspaces.annotation.pojo.SpaceId;
  *
  */
 @Entity
-public class Client {
+@SpaceClass
+public class Client implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
 	/**
 	 * The UUID for Gigaspaces
 	 */
